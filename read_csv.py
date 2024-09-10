@@ -1,19 +1,12 @@
 import csv
-import sys
-import json
 
-def main():
-    file_name = sys.argv[1]
-    result = []
-    with open(file_name, mode='r') as csv_file:
-        csv_reader = csv.DictReader(csv_file)
-        for row in csv_reader:
-            result.append({
-                "first_name": row["first_name"],
-                "last_name": row["last_name"],
-                "email": row["email"]
-            })
-    print(json.dumps({"students": result}))
 
-if __name__ == "__main__":
-    main()
+# Read CSV file and save the students as variables in variables.tf
+
+with open('students.csv', mode='r') as file:
+    reader = csv.DictReader(file)
+    with open('terraform.tfvars', 'w') as tfvars:
+        for row in reader:
+            student_name = row['first_name'] + row['last_name']
+            student_email = row['email']
+            tfvars.write(f'student_projects["{student_name}"] = "{student_email}"\n')
