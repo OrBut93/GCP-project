@@ -22,3 +22,12 @@ resource "google_folder" "course_folder" {
     display_name = var.course_folder_name
     parent = "organization/	912009230618" // Bynet organization id
 }
+
+resource "google_project" "student_project" {
+  for_each       = var.student_projects
+  name           = each.key
+  project_id     = each.key
+  folder_id      = google_folder.course_folder.id
+  billing_account = var.sub_billing_account 
+}
+

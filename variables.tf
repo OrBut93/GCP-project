@@ -6,10 +6,6 @@ variable "folder_service_account_key_path" {
   type        = string
 }
 
-################################
-#REGION
-################################
-
 ## this defined the Region for VM ## 
 variable "zone" {
   default = "europe-west3-c"
@@ -29,4 +25,10 @@ variable "student_projects" {
   description = "A map of student project names to their email addresses"
   type = map(string)
 }
+
+variable "sub_billing_account" {
+  description = "sub billing account id for the projects"
+  type = string
+}
+
 

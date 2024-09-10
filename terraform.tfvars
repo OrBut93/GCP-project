@@ -6,3 +6,5 @@
 folder_service_account_key_path= "/path/to/your/service-account-key.json"  # Set default or provide value via CLI
 
 course_folder_name = "course-folder"
+
+sub_billing_account = "" // # Replace with actual billing account ID
