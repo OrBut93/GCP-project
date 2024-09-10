@@ -17,6 +17,16 @@ variable "zone" {
 
 ##This defind the Zone for VPC##
 variable "region" {
-    default = "europe-west3"
-  
+    default = "europe-west3" 
 }
+
+variable "course_folder_name" {
+  description = "the GCP folder for the course"
+  type = string
+}
+
+variable "student_projects" {
+  description = "A map of student project names to their email addresses"
+  type = map(string)
+}
+
